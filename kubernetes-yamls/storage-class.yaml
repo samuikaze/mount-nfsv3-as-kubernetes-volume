@@ -1,0 +1,23 @@
+# storage-class.yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-csi-v3
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+provisioner: nfs.csi.k8s.io
+parameters:
+  # Change `NFS_SERVER_IP` with correct IP or hostname
+  server: NFS_SERVER_IP
+  # Change the share path with correct share path
+  share: /path/to/your/share
+  # You can change the folder create pattern when PV is created by StorageClass
+  subDir: "${pvc.metadata.namespace}/${pvc.metadata.name}/${pv.metadata.name}"
+  # Change the mount permission with what you need to safe your NFS server.
+  mountPermissions: "0755"
+reclaimPolicy: Delete
+mountOptions:
+  - nfsvers=3
+  - nolock
+allowVolumeExpansion: true
+volumeBindingMode: Immediate
