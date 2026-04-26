@@ -1,3 +1,5 @@
+⚠️ 由於文件類型相似，因此將所有文件整理至[這邊](https://github.com/samuikaze/kubernetes-mounting-storages/tree/main/mount-nfsv3-as-kubernetes-volume)，未來請透過新的儲存庫檢視文件。
+
 # 透過 NFSv3 將網路磁碟掛載為 Kubernetes 的 Volume
 
 <!-- markdownlint-disable MD028 -->
